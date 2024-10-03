@@ -1,4 +1,12 @@
-body {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Plan Value Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <style>
+       body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
@@ -105,3 +113,190 @@ body {
 .input {
   flex: 1 0 auto;
 }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <h1 class="text-2xl font-bold mb-6">Success Plan Value Calculator</h1>
+        <form id="calculatorForm">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="annualRevenue">
+                        Annual revenue ($)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="annualRevenue" type="number" value="468000000">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="grossMargin">
+                        Gross Margin (%)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="grossMargin" type="number" step="0.01" value="22">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="annualWorkingHours">
+                        Annual working hours
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="annualWorkingHours" type="number" value="1920">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="numDevelopers">
+                        Number of Salesforce developers & admins
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="numDevelopers" type="number" value="5">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="developerHourlyCost">
+                        Average fully loaded hourly cost per developer ($)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="developerHourlyCost" type="number" value="75">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="developerTimePercent">
+                        Average time dedicated to development & admin (%)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="developerTimePercent" type="number" step="0.01" value="80">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="numActiveUsers">
+                        Number of active users
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="numActiveUsers" type="number" value="1000">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="userHourlyCost">
+                        Average fully loaded hourly cost per user ($)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userHourlyCost" type="number" value="50">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="userTimePercent">
+                        Average time spent in Salesforce (%)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userTimePercent" type="number" step="0.01" value="20">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="annualCases">
+                        Annual number of cases
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="annualCases" type="number" value="100">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="caseResolutionTime">
+                        Average resolution time per case (days)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="caseResolutionTime" type="number" step="0.01" value="10">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="numSupportFTE">
+                        Average number of FTE supporting case resolution
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="numSupportFTE" type="number" value="5">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="supportHourlyCost">
+                        Average hourly cost per FTE ($)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="supportHourlyCost" type="number" value="75">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="supportTimePercent">
+                        Time dedicated to support case resolution (%)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="supportTimePercent" type="number" step="0.01" value="20">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="salesforceRevPercent">
+                        Revenue attributed to Salesforce offerings (%)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="salesforceRevPercent" type="number" step="0.01" value="20">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="annualDisruptions">
+                        Annual number of disruption events
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="annualDisruptions" type="number" value="5">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="disruptionDuration">
+                        Average duration of disruption events (hours)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="disruptionDuration" type="number" step="0.01" value="4">
+                </div>
+            </div>
+            <div class="mt-6">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onclick="calculateResults()">
+                    Calculate
+                </button>
+            </div>
+        </form>
+        <div id="results" class="mt-8 hidden">
+            <h2 class="text-xl font-bold mb-4">Results</h2>
+            <div id="resultsContent" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateResults() {
+            const annualRevenue = parseFloat(document.getElementById('annualRevenue').value);
+            const grossMargin = parseFloat(document.getElementById('grossMargin').value) / 100;
+            const annualWorkingHours = parseFloat(document.getElementById('annualWorkingHours').value);
+            const numDevelopers = parseFloat(document.getElementById('numDevelopers').value);
+            const developerHourlyCost = parseFloat(document.getElementById('developerHourlyCost').value);
+            const developerTimePercent = parseFloat(document.getElementById('developerTimePercent').value) / 100;
+            const numActiveUsers = parseFloat(document.getElementById('numActiveUsers').value);
+            const userHourlyCost = parseFloat(document.getElementById('userHourlyCost').value);
+            const userTimePercent = parseFloat(document.getElementById('userTimePercent').value) / 100;
+            const annualCases = parseFloat(document.getElementById('annualCases').value);
+            const caseResolutionTime = parseFloat(document.getElementById('caseResolutionTime').value);
+            const numSupportFTE = parseFloat(document.getElementById('numSupportFTE').value);
+            const supportHourlyCost = parseFloat(document.getElementById('supportHourlyCost').value);
+            const supportTimePercent = parseFloat(document.getElementById('supportTimePercent').value) / 100;
+            const salesforceRevPercent = parseFloat(document.getElementById('salesforceRevPercent').value) / 100;
+            const annualDisruptions = parseFloat(document.getElementById('annualDisruptions').value);
+            const disruptionDuration = parseFloat(document.getElementById('disruptionDuration').value);
+
+            // Calculate results
+            const developerCost = numDevelopers * developerHourlyCost * annualWorkingHours * developerTimePercent;
+            const userProductivityCost = numActiveUsers * userHourlyCost * annualWorkingHours * userTimePercent;
+            const supportCost = annualCases * caseResolutionTime * 24 * numSupportFTE * supportHourlyCost * supportTimePercent;
+            const disruptionCost = (annualRevenue * salesforceRevPercent / (annualWorkingHours * 365 / 7 * 24)) * annualDisruptions * disruptionDuration;
+
+            const totalCost = developerCost + userProductivityCost + supportCost + disruptionCost;
+            const costAsPercentOfRevenue = (totalCost / annualRevenue) * 100;
+
+            // Display results
+            const resultsContent = document.getElementById('resultsContent');
+            resultsContent.innerHTML = `
+                <div>
+                    <p class="font-bold">Developer & Admin Cost:</p>
+                    <p>$${developerCost.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
+                </div>
+                <div>
+                    <p class="font-bold">User Productivity Cost:</p>
+                    <p>$${userProductivityCost.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
+                </div>
+                <div>
+                    <p class="font-bold">Support Cost:</p>
+                    <p>$${supportCost.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
+                </div>
+                <div>
+                    <p class="font-bold">Business Disruption Cost:</p>
+                    <p>$${disruptionCost.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
+                </div>
+                <div>
+                    <p class="font-bold">Total Cost:</p>
+                    <p>$${totalCost.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
+                </div>
+                <div>
+                    <p class="font-bold">Cost as % of Revenue:</p>
+                    <p>${costAsPercentOfRevenue.toLocaleString(undefined, {maximumFractionDigits: 2})}%</p>
+                </div>
+            `;
+
+            document.getElementById('results').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
