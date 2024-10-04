@@ -6,113 +6,90 @@
     <title>Success Plan Value Calculator</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
     <style>
-       body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f2f2f2;
-}
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
-}
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1a237e, #0d47a1);
+            color: #333;
+            min-height: 100vh;
+        }
 
-.form {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-}
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
 
-.form-group {
-  margin-bottom: 1rem;
-}
+        h1, h2 {
+            color: #0d47a1;
+        }
 
-.label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  display: flex;
-  align-items: center;
-}
+        input[type="number"] {
+            -moz-appearance: textfield;
+            background-color: #f0f4f8;
+            border: 1px solid #d1d5db;
+            transition: all 0.3s ease;
+        }
 
-.input {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
+        input[type="number"]:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
 
-.button {
-  background-color: #3b82f6;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;   
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
 
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  font-size: 16px;
-  font-weight: bold;   
+        .btn-calculate {
+            background: linear-gradient(45deg, #1565c0, #0d47a1);
+            transition: all 0.3s ease;
+        }
 
-}
+        .btn-calculate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-.button:hover {
-  background-color: #2c6bec;
-}
+        .result-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
 
-.results {
-  margin-top: 2rem;
-  display: none;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  padding: 2rem;
-}
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
 
-.results.visible {
-  display: block;
-}
+        .ai-glow {
+            position: relative;
+            overflow: hidden;
+        }
 
-.results-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
+        .ai-glow::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            animation: glowAnimation 5s infinite linear;
+        }
 
-.result-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-}
-
-.result-item p:first-child {
-  font-weight: bold;
-}
-
-/* Additional styles for a more compact look */
-.container {
-  max-width: 800px;
-  margin: 1rem auto;
-}
-
-.form-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.label {
-  flex: 0 0 auto;
-  min-width: 120px;
-  text-align: right;
-  padding-right: 1rem;
-}
-
-.input {
-  flex: 1 0 auto;
-}
+        @keyframes glowAnimation {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-100 p-8">
