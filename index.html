@@ -6,90 +6,101 @@
     <title>Success Plan Value Calculator</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+       /* Reset default styles (optional) */
+html, body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, blockquote, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #1a237e, #0d47a1);
-            color: #333;
-            min-height: 100vh;
-        }
+/* Import Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-        .container {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-        }
+/* Global styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #1a237e, #0d47a1);
+  color: #333;
+  min-height: 100vh;
+}
 
-        h1, h2 {
-            color: #0d47a1;
-        }
+.container {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
 
-        input[type="number"] {
-            -moz-appearance: textfield;
-            background-color: #f0f4f8;
-            border: 1px solid #d1d5db;
-            transition: all 0.3s ease;
-        }
+h1, h2 {
+  color: #0d47a1;
+}
 
-        input[type="number"]:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-        }
+input[type="number"] {
+  -moz-appearance: textfield;
+  background-color: #f0f4f8;
+  border: 1px solid #d1d5db;
+  transition: all 0.3s ease;
+}
 
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
+input[type="number"]:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
 
-        .btn-calculate {
-            background: linear-gradient(45deg, #1565c0, #0d47a1);
-            transition: all 0.3s ease;
-        }
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
-        .btn-calculate:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+.btn-calculate {
+  background: linear-gradient(45deg, #1565c0, #0d47a1);
+  transition: all 0.3s ease;
+}
 
-        .result-card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
+.btn-calculate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-        .result-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
+.result-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
 
-        .ai-glow {
-            position: relative;
-            overflow: hidden;
-        }
+.result-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
 
-        .ai-glow::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
-            animation: glowAnimation 5s infinite linear;
-        }
+.ai-glow {
+  position: relative;
+  overflow: hidden;
+}
 
-        @keyframes glowAnimation {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg);
-            }
-            100% {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
-        }
+.ai-glow::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+  animation: glowAnimation 5s infinite linear;
+}
+
+@keyframes glowAnimation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
     </style>
 </head>
 <body class="bg-gray-100 p-8">
